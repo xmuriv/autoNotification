@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+	<title>Auto Notification</title>
+</h:head>
+<h:body>
+
+	<h:form>
+
+		<h1>
+		<h:outputText value="BMW Notification" />
+		</h1>
+		<h:panelGrid columns="2">
+			<h:outputText value="Name:"></h:outputText>
+			<h:inputText type="text" value="#{auto.notification.name}" />
+			<h:outputText type="text" value="Notification Type" />
+			<h:selectOneMenu value="#{auto.notification.notificationType}">
+				<f:selectItem itemLabel="pull" itemValue="Pull"></f:selectItem>
+				<f:selectItem itemLabel="push" itemValue="Push"></f:selectItem>
+			</h:selectOneMenu>
+
+			<h:outputText value="Notification Message: "></h:outputText>
+			<h:inputText type="text" value="#{auto.notification.notificationMsg}" />
+
+			<h:outputText type="text" value="model: " />
+			<h:selectOneMenu value="#{auto.notification.models}">
+				<f:selectItems value="#{auto.notification.modelTypes}"/>
+				<f:ajax execute="models"  render="year"></f:ajax>
+			</h:selectOneMenu>
+
+			<h:outputText value="year"></h:outputText>
+		<h:outputText id="year" value="#{auto.notification.modelYear}"></h:outputText>
+			<h:outputText value="targetURL: "></h:outputText>
+			<h:inputText type="text" value="#{auto.notification.targetURL}" />
+		</h:panelGrid>
+		<h:commandButton action="#{auto.create}" value="create">
+		</h:commandButton>
+
+	</h:form>
+</h:body>
+
+</html>
