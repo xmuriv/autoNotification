@@ -12,18 +12,19 @@ public class AutoProcessController {
 	@Inject
 	NotificationServiceBean notificationBean;
 	
-	
-	Notfication notification =new Notfication();
+	@Inject
+	Notification notification;
 
-	public Notfication getNotification() {
+	public Notification getNotification() {
 		return notification;
 	}
 
-	public void setNotification(Notfication notification) {
+	public void setNotification(Notification notification) {
 		this.notification = notification;
 	}
 
 	public void create() {
+		System.out.println("Create()     :"+notification);
 		notificationBean.createNotification(notification);
 	}
 

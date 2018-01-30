@@ -11,7 +11,12 @@ import javax.persistence.Transient;
 
 @Entity
 @Table(name="NOTIFICATION")
-public class Notfication {
+public class Notification {
+	
+	public Notification() {
+		// TODO Auto-generated constructor stub
+		System.out.println("constructor");
+	}
 
 	@Id
 	@GeneratedValue
@@ -29,7 +34,7 @@ public class Notfication {
 		modelTypes.add("BMW1");
 		modelTypes.add("BMW2");
 		modelTypes.add("BMW3");
-
+System.out.println(modelTypes.size());
 		return modelTypes;
 	}
 
